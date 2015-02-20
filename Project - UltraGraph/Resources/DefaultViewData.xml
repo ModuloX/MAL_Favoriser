@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DefaultViewData>
+  <Vertex>
+    <Radius>20</Radius>
+    <BackgroundColor>#FFAABBCC</BackgroundColor>
+    <BorderThickness>3</BorderThickness>
+    <BorderColor>#FF777777</BorderColor>
+  </Vertex>
+</DefaultViewData>

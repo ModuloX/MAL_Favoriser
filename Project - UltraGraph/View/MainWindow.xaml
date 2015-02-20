@@ -1,0 +1,85 @@
+﻿<Window x:Class="MarkusRezai.Project.UltraGraph.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:view="clr-namespace:MarkusRezai.Project.UltraGraph.View"
+        xmlns:meta="clr-namespace:MarkusRezai.Project.UltraGraph.ViewModel"
+        Title="UltraGraph" Height="1900" Width="1000" WindowState="Maximized" WindowStyle="None">
+    <Window.CommandBindings>
+        <CommandBinding Command="meta:Commands.NewGraph" Executed="NewGraph_Executed" CanExecute="NewGraph_CanExecute"/>
+        <CommandBinding Command="meta:Commands.OpenGraph" Executed="OpenGraph_Executed" CanExecute="OpenGraph_CanExecute"/>
+        <CommandBinding Command="meta:Commands.SaveGraph" Executed="SaveGraph_Executed" CanExecute="SaveGraph_CanExecute"/>
+        <CommandBinding Command="meta:Commands.ShowHelp" Executed="ShowHelp_Executed" CanExecute="ShowHelp_CanExecute"/>
+        <CommandBinding Command="meta:Commands.ExitProgram" Executed="ExitProgram_Executed" CanExecute="ExitProgram_CanExecute"/>
+        <CommandBinding Command="meta:Commands.ShowGraphProperties" Executed="ShowGraphProperties_Executed" CanExecute="ShowGraphProperties_CanExecute"/>
+        <CommandBinding Command="meta:Commands.NewVertexToolMode" Executed="NewVertexToolMode_Executed" CanExecute="NewVertexToolMode_CanExecute"/>
+        <CommandBinding Command="meta:Commands.ConnectToolMode" Executed="ConnectToolMode_Executed" CanExecute="ConnectToolMode_CanExecute"/>
+        <CommandBinding Command="meta:Commands.ReconnectToolMode" Executed="ReconnectToolMode_Executed" CanExecute="ReconnectToolMode_CanExecute"/>
+        <CommandBinding Command="meta:Commands.EditToolMode" Executed="EditToolMode_Executed" CanExecute="EditToolMode_CanExecute"/>
+        <CommandBinding Command="meta:Commands.DeleteToolMode" Executed="DeleteToolMode_Executed" CanExecute="DeleteToolMode_CanExecute"/>
+        <CommandBinding Command="meta:Commands.UnselectTool" Executed="UnselectTool_Executed" CanExecute="UnselectTool_CanExecute"/>
+    </Window.CommandBindings>
+
+    <Window.Content>
+        <DockPanel>
+            <WrapPanel x:Name="Toolbar" Margin="10" VerticalAlignment="Top" DockPanel.Dock="Top"  Orientation="Horizontal" HorizontalAlignment="Center">
+                <controls:Tile Width="64" Height="64" x:Name="bNewGraph" ToolTip="New" Command="meta:Commands.NewGraph">
+                    <Image Source="..\Resources\ToolbarGraphics\NewGraph.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bOpenGraph" ToolTip="Open" Command="meta:Commands.OpenGraph">
+                    <Image Source="..\Resources\ToolbarGraphics\OpenGraph.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bSaveGraph" ToolTip="Save" Command="meta:Commands.SaveGraph">
+                    <Image Source="..\Resources\ToolbarGraphics\SaveGraph.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bShowHelp" ToolTip="Help" Command="meta:Commands.ShowHelp">
+                    <Image Source="..\Resources\ToolbarGraphics\ShowHelp.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bExitProgram" ToolTip="Exit" Command="meta:Commands.ExitProgram">
+                    <Image Source="..\Resources\ToolbarGraphics\ExitProgram.png"/>
+                </controls:Tile>
+                <Separator Width="64" Height="5" Margin="-25" RenderTransformOrigin="0.5,0.5"  >
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <controls:Tile Width="64" Height="64" x:Name="bNewShowGraphProperties" ToolTip="Graph Properties" Command="meta:Commands.ShowGraphProperties">
+                    <Image Source="..\Resources\ToolbarGraphics\ShowGraphProperties.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bNewVertex" ToolTip="New Vertex" Command="meta:Commands.NewVertexToolMode">
+                    <Image Source="..\Resources\ToolbarGraphics\NewVertex.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bConnect" ToolTip="Connect" Command="meta:Commands.ConnectToolMode">
+                    <Image Source="..\Resources\ToolbarGraphics\Connect.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bReconnect" ToolTip="Reconnect" Command="meta:Commands.ReconnectToolMode">
+                    <Image Source="..\Resources\ToolbarGraphics\Reconnect.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bEditMode" ToolTip="Edit" Command="meta:Commands.EditToolMode">
+                    <Image Source="..\Resources\ToolbarGraphics\EditMode.png"/>
+                </controls:Tile>
+                <controls:Tile Width="64" Height="64" x:Name="bDeleteMode" ToolTip="Delete" Command="meta:Commands.DeleteToolMode">
+                    <Image Source="..\Resources\ToolbarGraphics\DeleteMode.png"/>
+                </controls:Tile>
+            </WrapPanel>
+            <Slider Margin="10" DockPanel.Dock="Bottom" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="1" ToolTip="The Zoom-Slider" 
+                    Orientation="Horizontal" HorizontalAlignment="Stretch" IsMoveToPointEnabled="True" Ticks="1, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100" TickPlacement="Both" Minimum="1" Maximum="100" Value="1" x:Name="MainSlider"/>
+            <ScrollViewer x:Name="MainScrollViewer" Focusable="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <Canvas x:Name="MainCanvas" Focusable="False" Background="AliceBlue" RenderTransformOrigin="0.5,0.5">
+                    <Canvas.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="MainScaleTransform"/>
+                        </TransformGroup>
+                    </Canvas.LayoutTransform>
+                </Canvas>
+            </ScrollViewer>
+        </DockPanel>
+    </Window.Content>
+</Window>

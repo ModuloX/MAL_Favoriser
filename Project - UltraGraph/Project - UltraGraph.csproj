@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAA26189-C347-41B0-AAEA-5A61997C4D1A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarkusRezai.Project.UltraGraph</RootNamespace>
+    <AssemblyName>Project - UltraGraph</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.0.13.1.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\packages\MahApps.Metro.0.13.1.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\Pair.cs" />
+    <Compile Include="Model\DetailData.cs" />
+    <Compile Include="Model\DetailDataBaseField.cs" />
+    <Compile Include="Model\DetailDataField.cs" />
+    <Compile Include="Model\DetailDataManager.cs" />
+    <Compile Include="Model\DetailDataTemplate.cs" />
+    <Compile Include="ViewModel\EdgeViewData.cs" />
+    <Compile Include="ViewModel\FieldPickerCommands.cs" />
+    <Compile Include="ViewModel\GraphPropertyWindowCommands.cs" />
+    <Compile Include="ViewModel\TagPickerCommands.cs" />
+    <Compile Include="Model\GraphData.cs" />
+    <Compile Include="ViewModel\VertexViewData.cs" />
+    <Compile Include="View\DetailDataFieldPropertiesWindow.xaml.cs">
+      <DependentUpon>DetailDataFieldPropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailDataTemplatePropertiesWindow.xaml.cs">
+      <DependentUpon>DetailDataTemplatePropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailDataWindow.xaml.cs">
+      <DependentUpon>DetailDataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EdgeViewDataWindow.xaml.cs">
+      <DependentUpon>EdgeViewDataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EdgePropertiesWindow.xaml.cs">
+      <DependentUpon>EdgePropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TagPropertiesWindow.xaml.cs">
+      <DependentUpon>TagPropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TagsWindow.xaml.cs">
+      <DependentUpon>TagsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VertexViewDataWindow.xaml.cs">
+      <DependentUpon>VertexViewDataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VertexPropertiesWindow.xaml.cs">
+      <DependentUpon>VertexPropertiesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\Commands.cs" />
+    <Compile Include="ViewModel\ExtensionMethods.cs" />
+    <Compile Include="View\GraphPropertiesWindow.xaml.cs">
+      <DependentUpon>GraphPropertiesWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModel\ToolMode.cs" />
+    <Compile Include="Model\Edge.cs" />
+    <Compile Include="Model\Graph.cs" />
+    <Compile Include="Model\ITaggable.cs" />
+    <Compile Include="Model\Tag.cs" />
+    <Compile Include="Model\Vertex.cs" />
+    <Compile Include="Petzold Arrows\ArrowEnds.cs" />
+    <Compile Include="Petzold Arrows\ArrowLine.cs" />
+    <Compile Include="Petzold Arrows\ArrowLineBase.cs" />
+    <Compile Include="Petzold Arrows\ArrowPolyline.cs" />
+    <Compile Include="ViewModel\ViewDataManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DefaultViewData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ToolbarGraphics\ShowHelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ToolbarGraphics\Connect.png" />
+    <Resource Include="Resources\ToolbarGraphics\DeleteMode.png" />
+    <Resource Include="Resources\ToolbarGraphics\ExitProgram.png" />
+    <Resource Include="Resources\ToolbarGraphics\NewGraph.png" />
+    <Resource Include="Resources\ToolbarGraphics\NewVertex.png" />
+    <Resource Include="Resources\ToolbarGraphics\OpenGraph.png" />
+    <Resource Include="Resources\ToolbarGraphics\Reconnect.png" />
+    <Resource Include="Resources\ToolbarGraphics\SaveGraph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\DetailDataFieldPropertiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DetailDataTemplatePropertiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DetailDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EdgeViewDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EdgePropertiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TagPropertiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TagsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VertexViewDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VertexPropertiesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\GraphPropertiesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ToolbarGraphics\ShowGraphProperties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ToolbarGraphics\EditMode.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

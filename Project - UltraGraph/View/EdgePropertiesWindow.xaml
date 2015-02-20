@@ -1,0 +1,98 @@
+﻿<controls:MetroWindow x:Class="MarkusRezai.Project.UltraGraph.View.EdgePropertiesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:meta="clr-namespace:MarkusRezai.Project.UltraGraph.ViewModel"
+        xmlns:model="clr-namespace:MarkusRezai.Project.UltraGraph.Model"
+        Title="Edge Properties" Height="429" Width="566" ShowIconOnTitleBar="False" ShowMaxRestoreButton="False" ShowMinButton="False" ResizeMode="NoResize">
+    <Window.CommandBindings>
+        <CommandBinding Command="meta:Commands.OkayButtonClick" Executed="OkayButtonClick_Executed" CanExecute="OkayButtonClick_CanExecute"/>
+        <CommandBinding Command="meta:GraphPropertyWindowCommands.AddEdgeViewData" Executed="AddEdgeViewData_Executed" CanExecute="AddEdgeViewData_CanExecute"/>
+        <CommandBinding Command="meta:GraphPropertyWindowCommands.EditEdgeViewData" Executed="EditEdgeViewData_Executed" CanExecute="EditEdgeViewData_CanExecute"/>
+        <CommandBinding Command="meta:GraphPropertyWindowCommands.DeleteEdgeViewData" Executed="DeleteEdgeViewData_Executed" CanExecute="DeleteEdgeViewData_CanExecute"/>
+        <CommandBinding Command="meta:GraphPropertyWindowCommands.AddDetailDataTemplate" Executed="AddDetailDataTemplate_Executed" CanExecute="AddDetailDataTemplate_CanExecute"/>
+        <CommandBinding Command="meta:GraphPropertyWindowCommands.EditDetailDataTemplate" Executed="EditDetailDataTemplate_Executed" CanExecute="EditDetailDataTemplate_CanExecute"/>
+        <CommandBinding Command="meta:GraphPropertyWindowCommands.DeleteDetailDataTemplate" Executed="DeleteDetailDataTemplate_Executed" CanExecute="DeleteDetailDataTemplate_CanExecute"/>
+        <CommandBinding Command="meta:TagPickerCommands.AddTag" Executed="AddTag_Executed" CanExecute="AddTag_CanExecute"/>
+        <CommandBinding Command="meta:TagPickerCommands.EditTag" Executed="EditTag_Executed" CanExecute="EditTag_CanExecute"/>
+        <CommandBinding Command="meta:TagPickerCommands.DeleteTag" Executed="DeleteTag_Executed" CanExecute="DeleteTag_CanExecute"/>
+    </Window.CommandBindings>
+    <Window.Content>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 5">
+                <Button Width="50" Style="{StaticResource AccentedSquareButtonStyle}" x:Name="bOk" Command="meta:Commands.OkayButtonClick">OK</Button>
+                <Button Width="50" Style="{StaticResource AccentedSquareButtonStyle}" x:Name="bCancel" Click="Cancel_Button_Click" Margin="10 0 0 0">Cancel</Button>
+            </StackPanel>
+
+            <Grid Margin="10 5" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="0 2 5 2"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </Grid.Resources>
+
+                <TextBlock Grid.Column="0" Grid.Row="0">Name:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1">Is Directed:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2">Reverse Direction:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="3">Is Weighted:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="4">Weight Descriptor:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="5">Weight Unit:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="6">Wight Value:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="7">View Data:</TextBlock>
+                <TextBlock x:Name="tDetailDataTemplate" Grid.Column="0" Grid.Row="8">Detail Data Template:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="9">Tags:</TextBlock>
+
+                <TextBox Margin="0 2 5 2" VerticalAlignment="Center" controls:TextboxHelper.ClearTextButton="True" x:Name="tbName" Grid.Column="1" Grid.Row="0"/>
+                <CheckBox Margin="0 2 5 2" VerticalAlignment="Center" x:Name="cbIsDirected" Grid.Column="1" Grid.Row="1"/>
+                <CheckBox Margin="0 2 5 2" VerticalAlignment="Center" x:Name="cbIsReverseDirection" Grid.Column="1" Grid.Row="2"/>
+                <CheckBox Margin="0 2 5 2" VerticalAlignment="Center" x:Name="cbIsWeighted" Grid.Column="1" Grid.Row="3"/>
+                <TextBox IsEnabled="{Binding ElementName=cbIsWeighted, Path=IsChecked}" Margin="0 2 5 2" VerticalAlignment="Center" controls:TextboxHelper.ClearTextButton="True" x:Name="tbWeightDescriptor" Grid.Column="1" Grid.Row="4"/>
+                <TextBox IsEnabled="{Binding ElementName=cbIsWeighted, Path=IsChecked}" Margin="0 2 5 2" VerticalAlignment="Center" controls:TextboxHelper.ClearTextButton="True" x:Name="tbWeightUnit" Grid.Column="1" Grid.Row="5"/>
+                <TextBox IsEnabled="{Binding ElementName=cbIsWeighted, Path=IsChecked}" Margin="0 2 5 2" VerticalAlignment="Center" controls:TextboxHelper.ClearTextButton="True" x:Name="tbWeightValue" Grid.Column="1" Grid.Row="6"/>
+
+                <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Width="50" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bEdgeAddViewData" Style="{DynamicResource SquareButtonStyle}" Command="meta:GraphPropertyWindowCommands.AddEdgeViewData">Add</Button>
+                    <Button Width="50" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bEdgeEditViewData" Style="{DynamicResource SquareButtonStyle}" Command="meta:GraphPropertyWindowCommands.EditEdgeViewData">Edit</Button>
+                    <Button Width="50" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bEdgeDeleteViewData" Style="{DynamicResource SquareButtonStyle}" Command="meta:GraphPropertyWindowCommands.DeleteEdgeViewData">Delete</Button>
+                    <ComboBox IsSynchronizedWithCurrentItem="True" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="cEdgeViewData" MinWidth="200" MaxWidth="200" ItemsSource="{Binding Source={x:Static meta:ViewDataManager.EdgeViewDataList}}" DisplayMemberPath="Name"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Width="50"  Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bAddDetailDataTemplate" Style="{DynamicResource SquareButtonStyle}" Command="meta:GraphPropertyWindowCommands.AddDetailDataTemplate">Add</Button>
+                    <Button Width="50"  Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bEditDetailDataTemplate" Style="{DynamicResource SquareButtonStyle}" Command="meta:GraphPropertyWindowCommands.EditDetailDataTemplate">Edit</Button>
+                    <Button Width="50" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bDeleteDetailDataTemplate" Style="{DynamicResource SquareButtonStyle}" Command="meta:GraphPropertyWindowCommands.DeleteDetailDataTemplate">Delete</Button>
+                    <ComboBox IsSynchronizedWithCurrentItem="True" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="cDetailDataTemplate" MinWidth="200" MaxWidth="200" ItemsSource="{Binding Source={x:Static model:DetailDataTemplateManager.DetailDataTemplateList}}" DisplayMemberPath="Name"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="9" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <ListBox IsSynchronizedWithCurrentItem="True" Margin="0 2 5 2" x:Name="lTags" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding Tags}" MinWidth="250" MaxWidth="250" DisplayMemberPath="Text"/>
+
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Button Width="50" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bAddTag" Style="{DynamicResource SquareButtonStyle}" Command="meta:TagPickerCommands.AddTag">Add</Button>
+                        <Button Width="50" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bEditTag" Style="{DynamicResource SquareButtonStyle}" Command="meta:TagPickerCommands.EditTag">Edit</Button>
+                        <Button Width="50" Margin="0 2 5 2" VerticalAlignment="Center" x:Name="bDeleteTag" Style="{DynamicResource SquareButtonStyle}" Command="meta:TagPickerCommands.DeleteTag">Delete</Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+    </Window.Content>
+</controls:MetroWindow>
