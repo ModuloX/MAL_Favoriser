@@ -61,70 +61,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Pair.cs" />
-    <Compile Include="Model\DetailData.cs" />
-    <Compile Include="Model\DetailDataBaseField.cs" />
-    <Compile Include="Model\DetailDataField.cs" />
-    <Compile Include="Model\DetailDataManager.cs" />
-    <Compile Include="Model\DetailDataTemplate.cs" />
-    <Compile Include="ViewModel\EdgeViewData.cs" />
-    <Compile Include="ViewModel\FieldPickerCommands.cs" />
-    <Compile Include="ViewModel\GraphPropertyWindowCommands.cs" />
-    <Compile Include="ViewModel\TagPickerCommands.cs" />
-    <Compile Include="Model\GraphData.cs" />
-    <Compile Include="ViewModel\VertexViewData.cs" />
-    <Compile Include="View\DetailDataFieldPropertiesWindow.xaml.cs">
-      <DependentUpon>DetailDataFieldPropertiesWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\DetailDataTemplatePropertiesWindow.xaml.cs">
-      <DependentUpon>DetailDataTemplatePropertiesWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\DetailDataWindow.xaml.cs">
-      <DependentUpon>DetailDataWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EdgeViewDataWindow.xaml.cs">
-      <DependentUpon>EdgeViewDataWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EdgePropertiesWindow.xaml.cs">
-      <DependentUpon>EdgePropertiesWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\TagPropertiesWindow.xaml.cs">
-      <DependentUpon>TagPropertiesWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\TagsWindow.xaml.cs">
-      <DependentUpon>TagsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\VertexViewDataWindow.xaml.cs">
-      <DependentUpon>VertexViewDataWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\VertexPropertiesWindow.xaml.cs">
-      <DependentUpon>VertexPropertiesWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModel\Commands.cs" />
-    <Compile Include="ViewModel\ExtensionMethods.cs" />
-    <Compile Include="View\GraphPropertiesWindow.xaml.cs">
-      <DependentUpon>GraphPropertiesWindow.xaml</DependentUpon>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModel\ToolMode.cs" />
-    <Compile Include="Model\Edge.cs" />
-    <Compile Include="Model\Graph.cs" />
-    <Compile Include="Model\ITaggable.cs" />
-    <Compile Include="Model\Tag.cs" />
-    <Compile Include="Model\Vertex.cs" />
-    <Compile Include="Petzold Arrows\ArrowEnds.cs" />
-    <Compile Include="Petzold Arrows\ArrowLine.cs" />
-    <Compile Include="Petzold Arrows\ArrowLineBase.cs" />
-    <Compile Include="Petzold Arrows\ArrowPolyline.cs" />
-    <Compile Include="ViewModel\ViewDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -153,11 +98,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\DefaultViewData.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\ToolbarGraphics\ShowHelp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -171,56 +111,20 @@
     <Resource Include="Resources\ToolbarGraphics\SaveGraph.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\DetailDataFieldPropertiesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DetailDataTemplatePropertiesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DetailDataWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EdgeViewDataWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EdgePropertiesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\TagPropertiesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\TagsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\VertexViewDataWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\VertexPropertiesWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\GraphPropertiesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\ToolbarGraphics\ShowGraphProperties.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ToolbarGraphics\EditMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
